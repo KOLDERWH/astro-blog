@@ -1,0 +1,19 @@
+---
+const { title, time } = Astro.props;
+---
+
+<style>
+  .title:hover {
+    background: #038;
+    a {
+      color: #fff;
+    }
+  }
+</style>
+
+<li>
+  <div class="title">
+    <a href="">{title}</a>
+  </div>
+  {time && <div class="time">{time}</div>}
+</li>

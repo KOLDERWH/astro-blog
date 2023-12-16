@@ -1,0 +1,19 @@
+---
+import BaseLayout from "@/layout/BaseLayout.astro";
+import BlogPost from "@/components/BlogPost.astro";
+const pageTitle = "blog";
+const allPosts = await Astro.glob("../pages/posts/*.md");
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="content">
+    <a href="/posts/vue">vue</a>
+    <ul>
+      {
+        allPosts.map((post) => {
+          return <BlogPost title={post.frontmatter.title} />;
+        })
+      }
+    </ul>
+  </div>
+</BaseLayout>

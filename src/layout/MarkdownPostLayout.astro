@@ -1,0 +1,26 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<style>
+  .title {
+    background-color: #fff;
+    border-radius: 16px;
+  }
+  .blog {
+    margin: 0 auto;
+  }
+</style>
+
+<BaseLayout pageTitle={frontmatter.title}>
+  <div class="title">
+    <h1 class="title">{frontmatter.title}</h1>
+    <p>Written by {frontmatter.author}</p>
+    <p>pub by {frontmatter.pubDate}</p>
+    <img src={frontmatter.heroImage} width="300" alt={frontmatter.heroImage} />
+  </div>
+  <div class="blog">
+    <slot />
+  </div>
+</BaseLayout>
