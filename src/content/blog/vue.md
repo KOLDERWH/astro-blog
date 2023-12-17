@@ -4,7 +4,7 @@ description: "vue学习记录"
 author: "Kolderwh"
 pubDate: "Dec 16 2023"
 heroImage: "/blog-placeholder-3.jpg"
-tags: ["astro"]
+tags: ["vue", "学习"]
 ---
 
 # 模板语法

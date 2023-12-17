@@ -1,10 +1,9 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "@/layout/BaseLayout.astro";
-import BlogPost from "@/components/BlogPost.astro";
+import PostCardRen from "@/components/PostCardRen.astro";
 
 export async function getStaticPaths() {
-  // const blogs = await getCollection("blog", ({ data }) => data.draft !== true);
   const tagsPosts = (await getCollection("blog")).filter(
     (post) => post.data.tags
   );
@@ -29,7 +28,8 @@ const filteredPosts = posts.filter((post) => post.data.tags?.includes(tag));
 <BaseLayout pageTitle={tag}>
   <p>Posts tagged with {tag}</p>
   <ul>
-    {
+    <PostCardRen posts={filteredPosts} />
+    <!-- {
       filteredPosts.map((post) => {
         const { title, description, pubDate } = post.data;
         const posturl = String("/posts/" + title);
@@ -42,6 +42,6 @@ const filteredPosts = posts.filter((post) => post.data.tags?.includes(tag));
           />
         );
       })
-    }
+    } -->
   </ul>
 </BaseLayout>

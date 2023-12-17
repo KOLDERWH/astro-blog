@@ -1,5 +1,6 @@
 ---
-const { title, time, posturl, description } = Astro.props;
+import { Icon } from "astro-icon";
+const { title, time, posturl, description, tags } = Astro.props;
 ---
 
 <li class="content">
@@ -7,6 +8,22 @@ const { title, time, posturl, description } = Astro.props;
     <a href={posturl}>{title}</a>
   </div>
   <div class="desc">{description}</div>
+  {
+    tags && (
+      <div class="tags">
+        {tags.map((tag) => {
+          return (
+            <div class="wrapper">
+              <div class="tag">
+                <Icon name="tag" />
+              </div>
+              {tag}
+            </div>
+          );
+        })}
+      </div>
+    )
+  }
   {time && <div class="time">{time}</div>}
 </li>
 
@@ -32,6 +49,17 @@ const { title, time, posturl, description } = Astro.props;
       font-size: 14px;
       color: #555;
       font-weight: normal;
+    }
+    > .tags {
+      display: flex;
+      .wrapper {
+        display: flex;
+        margin-right: 6px;
+        .tag {
+          width: 15px;
+          height: 16px;
+        }
+      }
     }
     > .time {
       color: #999;

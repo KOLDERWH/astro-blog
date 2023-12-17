@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layout/BaseLayout.astro";
-import BlogPost from "@/components/BlogPost.astro";
 import ProfileCard from "@/components/ProfileCard.astro";
+import PostCardRen from "@/components/PostCardRen.astro";
 
 const pageTitle = "blog";
 
@@ -13,21 +13,7 @@ const allPosts = await getCollection("blog");
 <BaseLayout pageTitle={pageTitle}>
   <div class="content">
     <ul>
-      {
-        allPosts &&
-          allPosts.map((post) => {
-            const { title, description, pubDate } = post.data;
-            const posturl = String("/posts/" + title);
-            return (
-              <BlogPost
-                title={title}
-                posturl={posturl}
-                description={description}
-                time={pubDate}
-              />
-            );
-          })
-      }
+      {allPosts && <PostCardRen posts={allPosts} />}
     </ul>
     <div class="profile">
       <ProfileCard postcount={allPosts.length} />
