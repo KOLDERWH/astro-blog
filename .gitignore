@@ -21,4 +21,4 @@ pnpm-debug.log*
 .DS_Store
 
 #blog
-src/content/blog/*
+src/content/blog

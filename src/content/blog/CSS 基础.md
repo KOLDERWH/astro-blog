@@ -1,6 +1,6 @@
 ---
 title: "CSS 基础"
-description: "Lorem ipsum dolor sit amet"
+description: "CSS的基本知识"
 pubDate: "Oct 22 2022"
 heroImage: "/blog-placeholder-4.jpg"
 ---
