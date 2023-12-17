@@ -1,11 +1,9 @@
 ---
-title: 'Vue学习笔记'
-description: 'vue学习记录'
-pubDate: 'Oct 08 2023'
-heroImage: '/vue3.png'
+title: "Vue学习笔记"
+description: "vue学习记录"
+pubDate: "Oct 08 2023"
+heroImage: "/vue3.png"
 ---
-
-# vue学习笔记
 
 # 模板语法
 
@@ -15,41 +13,41 @@ heroImage: '/vue3.png'
 
 ### 修饰符（stop）
 
-.prevent 会打断默认的html标签的行为
+.prevent 会打断默认的 html 标签的行为
 
-语法糖v-on:click=@click
+语法糖 v-on:click=@click
 
 ## 2.v-for 便利数组
 
 ### key&id
 
-# 3.v-if 
+# 3.v-if
 
 v-if 决定元素是否加载
 
 ## 4.v-show
 
-控制元素的visiable属性 
+控制元素的 visiable 属性
 
 ## 5.v-bind
 
-v-bind:[arrtibute]=url   **arrtibute**为表达式
+v-bind:[arrtibute]=url **arrtibute**为表达式
 
-语法       v-bind:value="name"
+语法 v-bind:value="name"
 
-语法糖   :value="name"
+语法糖 :value="name"
 
 ## 6.v-model
 
 双向绑定（一般用于表单，选框，输入框）
 
-如果绑定的值为数组，则会将value值填入数组中
+如果绑定的值为数组，则会将 value 值填入数组中
 
-用v-model绑定复选框(checkbox)，单选框(radio)，下拉框（select）要加上value值
+用 v-model 绑定复选框(checkbox)，单选框(radio)，下拉框（select）要加上 value 值
 
 语法：v-model=“message"
 
- :value="message" @input="message = $event.target.value"
+:value="message" @input="message = $event.target.value"
 
 ## 7.v-slot
 
@@ -61,13 +59,13 @@ v-slot:name
 
 语法糖：#name
 
-作用域插槽可以将子组件的数据通过slot传给父元素
+作用域插槽可以将子组件的数据通过 slot 传给父元素
 
 # Option API
 
 ## 1.computed 计算属性
 
-## 2.methods 
+## 2.methods
 
 ## 3.watch 监听
 
@@ -85,22 +83,22 @@ v-slot:name
 
 - **对象写法**（type,required,default）
 
-  对象类型设为Object时，两种写法
+  对象类型设为 Object 时，两种写法
 
   - eventname:()=>( {"name":Lee}),
 
   - eventname(){
 
-  ​    return{
+  ​ return{
 
-  ​      "name":"Lee"}
+  ​ "name":"Lee"}
 
-    }
+  }
 
   ### 语法
 
   父组件： :name=参数
-  
+
   子组件： props:[name]
 
 ## 6.emits
@@ -111,7 +109,7 @@ v-slot:name
 
 子组件: $emit("name","参数")
 
-父组件： @name=函数     函数（参数）
+父组件： @name=函数 函数（参数）
 
 ## 7.provide
 
@@ -121,23 +119,21 @@ v-slot:name
 
 用于组件间通信接收
 
-### 语法	
+### 语法
 
 provide:{
 
-  name:"data"
+name:"data"
 
 }
 
-
-
 provide(){
 
-  return{
+return{
 
-​    name:"data"
+​ name:"data"
 
-  }
+}
 
 }
 
@@ -147,7 +143,7 @@ inject:[name,name]
 
 ## 9. name
 
-用于在keepalive里面绑定存活的组件名称
+用于在 keepalive 里面绑定存活的组件名称
 
 ## 10. mixin
 
@@ -163,7 +159,7 @@ derectives{
 	focus:{
         created(){
         }
-        unmounted(){   
+        unmounted(){
         }
     }
 }
@@ -180,7 +176,7 @@ const VFocus={
 //global
 app.derective("focus",{
     mounted(){
-    
+
 	}
   })
 
@@ -190,25 +186,15 @@ app.derective("focus",{
 <h2 v-focus="aa"><h2>
 ```
 
-
-
-
-
 # 组件
 
-默认的vue版本，vue-loader完成template的编译
+默认的 vue 版本，vue-loader 完成 template 的编译
 
-vue.esm-bundler:runtime+compile，对template进行编译
+vue.esm-bundler:runtime+compile，对 template 进行编译
 
-style里面的scoped用于分割样式
+style 里面的 scoped 用于分割样式
 
-
-
-
-
-
-
-# slots插槽
+# slots 插槽
 
 # 生命周期
 
@@ -224,7 +210,7 @@ style里面的scoped用于分割样式
 
 ## 4.mounted
 
-获取dom
+获取 dom
 
 ## 5.beforeUpdate
 
@@ -236,21 +222,15 @@ style里面的scoped用于分割样式
 
 取消事件监听（回收操作）
 
-
-
-动态组件使用component组件，通过is属性实现
-
-
+动态组件使用 component 组件，通过 is 属性实现
 
 ## 9.activated
 
-组件keeplive时使用
+组件 keeplive 时使用
 
 ## 10.deactivated
 
-组件退出keeplive时使用
-
-
+组件退出 keeplive 时使用
 
 # Composition API
 
@@ -274,11 +254,11 @@ style里面的scoped用于分割样式
 
 ## isProxy
 
-判断是否由reactive和readonly创建的
+判断是否由 reactive 和 readonly 创建的
 
 ## isReactive
 
-判断是否由reactive创建的
+判断是否由 reactive 创建的
 
 ## isReadonly
 
@@ -296,7 +276,7 @@ style里面的scoped用于分割样式
 
 ## unref
 
-相当于name.value	
+相当于 name.value
 
 可以把不是响应式的数值变成响应式
 
@@ -312,46 +292,50 @@ style里面的scoped用于分割样式
 
 暴露组件的方法，让其可以被父组件调用
 
-## setup语法糖
+## setup 语法糖
 
-不用写return
+不用写 return
 
-components不用写了
+components 不用写了
 
-用defineProps函数父子传数据
+用 defineProps 函数父子传数据
 
-用defineEmits函数父子传数据
+用 defineEmits 函数父子传数据
 
 # 异步组件
 
 ```js
-const asyncPage = () => import('./NextPage.vue')
+const asyncPage = () => import("./NextPage.vue");
 ```
 
 # 路由
 
-加上replace浏览器不记录跳转地址
+加上 replace 浏览器不记录跳转地址
 
 ```javascript
- <router-link to="/home" replace>Home</router-link>
+<router-link to="/home" replace>
+  Home
+</router-link>
 ```
 
-激活的路由身上会有一个active的class
+激活的路由身上会有一个 active 的 class
 
-## 路由懒加载	分包
+## 路由懒加载 分包
 
 写法一
 
 ```javascript
-const About = () => import("../component/About.vue")
+const About = () => import("../component/About.vue");
 ```
+
 写法二
- ```javascript 
+
+```javascript
 {
-     path: "/about",
-     component: () => import("../component/About.vue")
- },
- ```
+    path: "/about",
+    component: () => import("../component/About.vue")
+},
+```
 
 ## 动态路由
 
@@ -359,23 +343,23 @@ const About = () => import("../component/About.vue")
     { path: "/user/:id", component: User },
 ```
 
-url为/user/123或者类似的url才匹配
+url 为/user/123 或者类似的 url 才匹配
 
-组件可以通过{{$route.params}}拿到url传来的参数
+组件可以通过{{$route.params}}拿到 url 传来的参数
 
-拿到url参数的另外一个方法
+拿到 url 参数的另外一个方法
 
 ```javascript
-import { useRoute,onBeforeRouteUpdate } from 'vue-router';
-onBeforeRouteUpdate((to,from)=>{
-    // const route= useRoute();
-    // console.log(route.params); 
-    console.log(to.params);
-    console.log(from.params);
-})
+import { useRoute, onBeforeRouteUpdate } from "vue-router";
+onBeforeRouteUpdate((to, from) => {
+  // const route= useRoute();
+  // console.log(route.params);
+  console.log(to.params);
+  console.log(from.params);
+});
 ```
 
-## 404网页设置路由
+## 404 网页设置路由
 
 ```javascript
  { path: "/:pathmatch(.*)", component: NotFound },
@@ -414,16 +398,16 @@ function back(){
 
 ```javascript
 if (isadmin) {
-    //一级路由
-    router.addRoute({
-        path: "/home",
-        component: NotFound
-    })
-    //二级路由
-    router.addRoute("home", {
-        path: "vip",
-        component: NotFound
-    })
+  //一级路由
+  router.addRoute({
+    path: "/home",
+    component: NotFound,
+  });
+  //二级路由
+  router.addRoute("home", {
+    path: "vip",
+    component: NotFound,
+  });
 }
 ```
 
@@ -431,71 +415,69 @@ if (isadmin) {
 
 ## 方法一
 
-添加name相同的路由
+添加 name 相同的路由
 
 ## 方法二
 
-通过removeRoute方法,传入路由名称
+通过 removeRoute 方法,传入路由名称
 
-```javasc	
+```javasc
 router.remoreRoute(name)
 ```
 
 ## 方法三
 
-通过addRoute方法的返回值回调
+通过 addRoute 方法的返回值回调
 
 ```javascript
-const removeRoute = router.addRoute(routrRecord)
-removeRoute()
+const removeRoute = router.addRoute(routrRecord);
+removeRoute();
 ```
 
 ## 获取所有路由
 
-router.getRoutes()	
+router.getRoutes()
 
 ## 路由导航守卫
 
 ```javascript
 router.beforeEach(() => {
-    console.log("每次切换路由都会调用");
-})
+  console.log("每次切换路由都会调用");
+});
 ```
 
-不返回或者undefine则会跳转
+不返回或者 undefine 则会跳转
 
-返回false取消导航
+返回 false 取消导航
 
 ## 导航流程
 
-* 导航触发
-* 失活组件beforeRouteLeave
-* 全局beforeEach（重要）
-* befreRouteUpdare
-* beforeEnter
-* 解析异步组件
-* beforeRouteEnter
-* 全局beforeResolve
-* 导航
-* afterEach
-* DOM更新
-* 调用beforeRouteEnter 中的next回调函数
-
-
+- 导航触发
+- 失活组件 beforeRouteLeave
+- 全局 beforeEach（重要）
+- befreRouteUpdare
+- beforeEnter
+- 解析异步组件
+- beforeRouteEnter
+- 全局 beforeResolve
+- 导航
+- afterEach
+- DOM 更新
+- 调用 beforeRouteEnter 中的 next 回调函数
 
 # vuex
 
-template里面使用
+template 里面使用
 
 ```javascript
 <h1>{{$store.state.name}}</h1>
 ```
 
- 计算属性获取
+计算属性获取
 
 ```javascript
 import {mapState} from "vuex"
-//Options API  
+//Options API
 computed:{
     //方法1
     ...mapState(["name","name1"]),
@@ -508,7 +490,7 @@ computed:{
 
 //Compostion API
 import {mapState,useStore} from "vuex"
-import {computed} from "vuex"     
+import {computed} from "vuex"
 
 const {name1,name2} = mapState(["name","name1"]),
 const store = useStore()
@@ -523,7 +505,7 @@ const store = useStore()
 const {name1,name2} = toRefs(store.state)
 ```
 
-##  getters传参数
+## getters 传参数
 
 ```javascript
 //index.js
@@ -540,9 +522,9 @@ getters: {
 
 ## Mutation
 
-更改数据的方法,不要在mutation里面执行异步操作，例如网路请求
+更改数据的方法,不要在 mutation 里面执行异步操作，例如网路请求
 
-在index.js里面统一定义mutation方法，然后再options API里面通过commit提交修改请求
+在 index.js 里面统一定义 mutation 方法，然后再 options API 里面通过 commit 提交修改请求
 
 ```javascript
 //index.js
@@ -556,7 +538,7 @@ mutations: {
 methods{
   change(){
       this.$store.commit("increase")
-  }  
+  }
 }
 
 //Composition API
@@ -567,7 +549,7 @@ changeValue(){
 }
 ```
 
-## mutations接收参数
+## mutations 接收参数
 
 ```javascript
 //index.js
@@ -583,10 +565,10 @@ mutations: {
 methods{
   change(){
       this.$store.commit("increase",10)
-  }.  
+  }.
    change1(){
       this.$store.commit("increase_two",{number:10})
-  } 
+  }
 }
 ```
 
@@ -632,7 +614,7 @@ changeValue(){
 
 ## modules
 
-将vuex的部分数据抽离到单独的文件，在index.js文件里面导入使用，这样更易于管理
+将 vuex 的部分数据抽离到单独的文件，在 index.js 文件里面导入使用，这样更易于管理
 
 ```javascript
 //index.js
@@ -643,32 +625,28 @@ moudeles:{home:homemodule}
 <h1>{{$store.state.home.name}}</h1>
 ```
 
-getter，mutaion和action的取法和默认一样，不用加模块名称	
-
-
+getter，mutaion 和 action 的取法和默认一样，不用加模块名称
 
 # Pinia
 
-可以调用store.$reset()将值重置会初始值
+可以调用 store.$reset()将值重置会初始值
 
 ```javascript
 //一次性修改多个值
-const userStore = useUSer()
-function changeData(){
-    userStore.$patch({
-        name:"sam"
-    })
+const userStore = useUSer();
+function changeData() {
+  userStore.$patch({
+    name: "sam",
+  });
 }
 
 //替换对象
 userStore.$state({
-        name:"sam"
-    })
+  name: "sam",
+});
 ```
 
-在getters/actions里，通过this.访问同为getters里的方法或者是state里面的数据
-
-
+在 getters/actions 里，通过 this.访问同为 getters 里的方法或者是 state 里面的数据
 
 ## 自定义指令
 
@@ -678,7 +656,7 @@ derectives{
 	focus:{
         created(){
         }
-        unmounted(){   
+        unmounted(){
         }
     }
 }
@@ -704,8 +682,6 @@ app.derective("focus",{
 <h2 v-focus="aa"><h2>
 ```
 
-
-
 ## Teleport
 
 可以自定义组件的挂载位置
@@ -713,24 +689,24 @@ app.derective("focus",{
 ```javascript
 <template>
   <div class="app">
-    <HelloWorld  />
+    <HelloWorld />
     <div class="item"></div>
   </div>
 </template>
 //将helloworld组件挂载到body上而不是app下面
 ```
 
-## Render函数
+## Render 函数
 
 ```javascript
 //optional API
 import { h } from 'vue';
 import HomeVue from './HomeCopnt.vue';
 export default {
-  
+
   render(){
      return h("vid",{className:"hello"}, [
-      h("h2",{className:"h2"},this.counter),  
+      h("h2",{className:"h2"},this.counter),
       h("button",{onClick:this.increase},"clickMe"),
       h(HomeVue,{className:"home1"}),
      ])
@@ -751,7 +727,7 @@ export default {
   <render/>
 </template>
 <script setup>
-import { h, ref } from 'vue'; 
+import { h, ref } from 'vue';
 import HomeVue from './HomeCopnt.vue';
 const counter = ref(0)
 const  increase=()=>{
@@ -759,15 +735,13 @@ const  increase=()=>{
 }
 
 const render=()=>h("vid",{className:"hello"}, [
-      h("h2",{className:"h2"},counter.value),  
+      h("h2",{className:"h2"},counter.value),
       h("button",{onClick:increase},"clickMe"),
       h(HomeVue),
 ])
 
 </script>
 ```
-
-
 
 ## JSX
 
@@ -779,7 +753,7 @@ npm i @vue/babel-plugin-jsx -D
 plugins: [
     "@vue/babel-plugin-jsx"
 ],
-    
+
 //optional API
 <script lang="jsx">
 export default{
@@ -801,7 +775,7 @@ export default{
                 <button onClick={this.increase}>+1</button>
             </div>
         )
-    }, 
+    },
 }
 </script>
 
@@ -820,9 +794,9 @@ const jsx = ()=>(
       <div class="home">
           <h1>JSX</h1>
           <h2>home{counter.value}</h2>
-          <button onClick= {increase}>+1</button>	
+          <button onClick= {increase}>+1</button>
       </div>)
-</script> 
+</script>
 ```
 
 ## 动画
@@ -836,7 +810,7 @@ const jsx = ()=>(
 type属性用于绑定那个动画为主 animation/transition
 mode可以设定显示的模式(in-out/out-in),指定动画切换的模式
 :duration用于设置动画持续时间（不常用）
-              
+
 ```
 
 # 响应式原理
@@ -844,36 +818,34 @@ mode可以设定显示的模式(in-out/out-in),指定动画切换的模式
 ```javascript
 //Object.defineProperty()
 const reactive = (obj) => {
-    Object.keys(obj).forEach(key => {
-        let value = obj[key];
-        Object.defineProperty(obj, key, {
-            set: function (newvalue) {
-                value = newvalue
-                dep.notify();
-            },
-            get: function () {
-                return value
-            }
-        })
-    })
-}
+  Object.keys(obj).forEach((key) => {
+    let value = obj[key];
+    Object.defineProperty(obj, key, {
+      set: function (newvalue) {
+        value = newvalue;
+        dep.notify();
+      },
+      get: function () {
+        return value;
+      },
+    });
+  });
+};
 
-new Proxy()	
+new Proxy();
 ```
-
-
 
 # Tip
 
-vue里面获取dom用ref
+vue 里面获取 dom 用 ref
 
 单一数据流/纯函数
 
-不要对reactive解构
+不要对 reactive 解构
 
-当使用reactive定义响应式数据时，如果直接把reactive定义的数据赋值，则会丢失响应式
+当使用 reactive 定义响应式数据时，如果直接把 reactive 定义的数据赋值，则会丢失响应式
 
-```javascript	
+```javascript
 const data = reactive({
  name:”sam"，
  age : 18
@@ -884,7 +856,7 @@ const data1 ={name :"tom" ,age: 23}
 data = data1
 ```
 
-用ref定义复炸数据类型时，记得使用value赋值
+用 ref 定义复炸数据类型时，记得使用 value 赋值
 
 ```javascript
 const data = ref({
@@ -899,5 +871,4 @@ data.vaue = data1
 conlole.log(data.value.name)
 ```
 
-app.use本质是安装插件
-
+app.use 本质是安装插件

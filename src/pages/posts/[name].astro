@@ -1,6 +1,6 @@
 ---
 import MarkdownPostLayout from "@/layout/MarkdownPostLayout.astro";
-import { type CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
   const res = (await getCollection("blog")).map((post) => ({
@@ -10,15 +10,9 @@ export async function getStaticPaths() {
   return res;
 }
 
-// type Props = CollectionEntry<"blog">;
-
 const { post } = Astro.props;
-
 // content为md内容 slugs为二级标题
 const { Content } = await post.render();
-// let Content = entry?.Content,
-//   slugs = entry?.headings;
-// console.log("slug", slugs);
 ---
 
 <MarkdownPostLayout {...post.data}>

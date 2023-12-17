@@ -1,0 +1,66 @@
+---
+const { postcount } = Astro.props;
+---
+
+<div class="profilecard">
+  <div class="avatar">
+    <img src="/src/assets/avatar/avatar.jpg" alt="" />
+  </div>
+  <div class="author">Kolderwh</div>
+  <div class="status">
+    <a href="/blog">
+      <div class="item">POSTS</div>
+      <div>{postcount}</div>
+    </a>
+    <a href="/tags">
+      <div class="item">TAGS</div>
+      <div>{postcount}</div>
+    </a>
+  </div>
+  <div class="extralink"></div>
+</div>
+
+<style>
+  .profilecard {
+    background: #eee;
+    border-radius: 16px;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    .avatar {
+      margin: 20px 0;
+      width: 150px;
+      height: 150px;
+      img {
+        object-fit: cover;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .author {
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    .status {
+      box-sizing: border-box;
+      padding: 0 18px;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      a {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+      }
+      .item {
+        cursor: pointer;
+        &:hover {
+          color: var(--hovercolor);
+        }
+      }
+    }
+  }
+</style>

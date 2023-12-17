@@ -1,6 +1,8 @@
 ---
+import { Icon } from "astro-icon";
 import LinkCard from "@/components/LinkCard.astro";
 import BaseLayout from "@/layout/BaseLayout.astro";
+
 const pageTitle = "关于KOLDERWH";
 ---
 
@@ -8,50 +10,66 @@ const pageTitle = "关于KOLDERWH";
   <div class="about">
     <h1>About</h1>
 
-    <h2>基本情况</h2>
+    <h3>基本情况</h3>
     <p>家底蹲大学，目前在找工作</p>
     <p>小前端一枚</p>
     <p>掌握的语言有Javascript, Java</p>
     <p>数据库目前只会Mysql</p>
 
-    <h2>技术栈</h2>
+    <h3>技术栈</h3>
     <p>HTML, CSS, JS(ES6)</p>
     <p>渲染框架: React, Vue</p>
     <p>打包工具: Vite, Webpack</p>
     <p>开发工具: Vscode, IDEA</p>
     <p>其他: Git, Bash</p>
 
-    <h2>语言</h2>
+    <h3>语言</h3>
     <p>Javascript</p>
     <p>Java</p>
     <p><del>Python</del></p>
     <p><del>C</del></p>
     <p><del>C#</del></p>
 
-    <h2>设备</h2>
+    <h3>设备</h3>
     <p>Samsung S10+</p>
     <p>Pixel 7</p>
     <p>iPhone 7</p>
     <p>orangepi-3lts</p>
 
-    <h2>外链</h2>
+    <h3>外链</h3>
     <ul>
-      <LinkCard url="https://space.bilibili.com/549336381">bli</LinkCard>
-      <LinkCard bgcolor="#222" url="https://github.com/KOLDERWH">Git</LinkCard>
-      <LinkCard bgcolor="#39d">tel</LinkCard>
+      <LinkCard url="https://space.bilibili.com/549336381">
+        <Icon name="ant-design:bilibili" />
+      </LinkCard>
+      <LinkCard url="mailto:kolderwh@gmail.com">
+        <Icon name="mail" />
+      </LinkCard>
+      <LinkCard bgcolor="#222" url="https://github.com/KOLDERWH">
+        <Icon name="github" />
+      </LinkCard>
+      <LinkCard url="https://steamcommunity.com/profiles/76561199000624616/">
+        <Icon name="steam" />
+      </LinkCard>
+      <LinkCard url="https://steamcommunity.com/profiles/76561199000624616/">
+        <Icon name="telegram" />
+      </LinkCard>
+      <LinkCard url="" bgcolor="#39d"><Icon name="twitter" /></LinkCard>
     </ul>
   </div>
-</BaseLayout>
 
-<style>
-  ul {
-    padding: 0;
-    list-style: none;
-    display: flex;
-  }
-  .about {
-    background: #fff;
-    padding: 4px 10px;
-    border-radius: 16px;
-  }
-</style>
+  <style>
+    ul {
+      padding: 0;
+      list-style: none;
+      display: flex;
+    }
+    .about {
+      background: #fff;
+      padding: 4px 60px;
+      border-radius: 16px;
+    }
+    p {
+      margin: 0;
+    }
+  </style>
+</BaseLayout>

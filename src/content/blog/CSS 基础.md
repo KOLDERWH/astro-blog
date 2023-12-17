@@ -1,5 +1,5 @@
 ---
-title: "CSS_base"
+title: "CSS 基础"
 description: "Lorem ipsum dolor sit amet"
 pubDate: "Oct 22 2022"
 heroImage: "/blog-placeholder-4.jpg"

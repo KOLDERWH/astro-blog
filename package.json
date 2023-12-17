@@ -12,6 +12,10 @@
   "dependencies": {
     "@astrojs/preact": "^3.0.1",
     "@astrojs/rss": "^4.0.1",
-    "astro": "^4.0.6"
+    "astro": "^4.0.6",
+    "dayjs": "^1.11.10"
+  },
+  "devDependencies": {
+    "astro-icon": "^0.8.2"
   }
 }

@@ -2,11 +2,11 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layout/BaseLayout.astro";
 import BlogPost from "@/components/BlogPost.astro";
+import ProfileCard from "@/components/ProfileCard.astro";
+
 const pageTitle = "blog";
 
 await getCollection("blog");
-// const allPosts = await getCollection("blog", ({ data }) => data.draft !== true);
-// const allPosts = await Astro.glob("../../content/blog/*.md");
 const allPosts = await getCollection("blog");
 ---
 
@@ -16,24 +16,44 @@ const allPosts = await getCollection("blog");
       {
         allPosts &&
           allPosts.map((post) => {
-            const posturl = String("/posts/" + post.data.title);
-            // console.log(posturl);
+            const { title, description, pubDate } = post.data;
+            const posturl = String("/posts/" + title);
             return (
               <BlogPost
-                title={post.data.title}
+                title={title}
                 posturl={posturl}
-                time={post.data.pubDate}
+                description={description}
+                time={pubDate}
               />
             );
           })
       }
     </ul>
+    <div class="profile">
+      <ProfileCard postcount={allPosts.length} />
+    </div>
   </div>
 </BaseLayout>
 
 <style>
+  .content {
+    display: flex;
+    .profile {
+      flex: 1;
+      margin-top: 16px;
+      margin-left: 24px;
+    }
+  }
+
   ul {
+    flex: 3;
     padding: 0;
     margin-top: 0;
+  }
+  /* 手机 */
+  @media screen and (max-width: 636px) {
+    .profile {
+      display: none;
+    }
   }
 </style>

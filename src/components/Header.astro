@@ -5,32 +5,50 @@ import ThemeIcon from "./ThemeIcon.astro";
 ---
 
 <header class="header">
-  <Humburger />
+  <!-- <Humburger /> -->
+  <div class="profile">
+    <img src="/src/assets/avatar/avatar.jpg" alt="" />
+    <div class="info">Kolderwh's 部落阁</div>
+  </div>
   <Navigation />
   <!-- <ThemeIcon /> -->
 </header>
 
 <style>
   .header {
-    background: #eee;
+    background: inherit;
+    /* filter: blur(1px); */
+    /* background: #fff; */
+    background: rgba(255, 255, 255, 0.96);
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     display: flex;
+    align-items: center;
     justify-content: center;
+    border-bottom: 1px solid #999;
   }
-  @media screen and (min-width: 636px) {
-    .header {
-      background: #fff;
-      width: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: center;
+  .profile {
+    display: flex;
+    align-items: center;
+    img {
+      display: none;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+    }
+    .info {
+      font-weight: bold;
+    }
+  }
+  @media screen and (max-width: 636px) {
+    .profile {
+      font-size: 14px;
+      img {
+        display: block;
+      }
     }
   }
 </style>

@@ -5,7 +5,9 @@ pubDate: "Jul 08 2022"
 heroImage: "/blog-placeholder-3.jpg"
 ---
 
-## yumApprepo 错误
+## yum
+
+### Apprepo 错误
 
 CentOS Linux 8 had reached the End Of Life (EOL) on December 31st, 2021. It means that CentOS 8 will no longer receive development resources from the official CentOS project. After Dec 31st, 2021, if you need to update your CentOS, you need to change the mirrors to vault.centos.org where they will be archived permanently.
 

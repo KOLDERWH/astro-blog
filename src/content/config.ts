@@ -1,4 +1,5 @@
 import { defineCollection, z } from 'astro:content';
+import dayjs from 'dayjs';
 
 const blog = defineCollection({
 	type: 'content',
@@ -6,8 +7,9 @@ const blog = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
+		tags: z.array(z.string()).optional(),
 		// Transform string to Date object
-		pubDate: z.coerce.date(),
+		pubDate: z.string(),
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
 	}),

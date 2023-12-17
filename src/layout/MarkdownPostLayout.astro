@@ -6,52 +6,54 @@ const formatImgul = (url) => {
   return "/src/assets/img" + url;
 };
 
-const { title, author, description, pubDate, updatedDate, heroImage } =
-  Astro.props;
+const { title, author, pubDate, tags } = Astro.props;
 ---
 
 <BaseLayout pageTitle={title}>
-  <div class="head">
-    <h1 class="title item">{title}</h1>
-    <div class="author item">
-      <p>Written by {author}</p>
-    </div>
-    <div class="date item">
+  <div class="blog">
+    <h1 class="title">{title}</h1>
+    <div class="date">
       <p>pub {pubDate}</p>
     </div>
-  </div>
-  <div class="blog">
+    {tags && <div class="tags">#{[...tags]}</div>}
     <slot />
   </div>
 </BaseLayout>
 
 <style>
-  .head {
-    background-color: #fff;
-    border-radius: 16px;
-    text-align: center;
-    padding: 6px;
-    .item {
-      margin: 0;
-      p {
-        margin: 0;
-      }
-    }
-    .img {
-      width: 100px;
-      height: 100px;
-      margin: 0 auto;
-      img {
-        width: 100%;
-        background: center;
-      }
-    }
-  }
   .blog {
-    overflow-x: hidden;
     margin: 10px 0;
     background-color: #fff;
-    border-radius: 16px;
-    padding: 10px 6px;
+    border-radius: 8px;
+    padding: 10px 32px;
+    text-align: justify;
+  }
+  .title {
+    margin: 8px 0;
+  }
+  .date {
+    font-size: 12px;
+    color: #999;
+    p {
+      padding: 0;
+    }
+    .tags {
+      font-size: 14px;
+    }
+    p {
+      word-break: break-all;
+      word-wrap: break-word;
+    }
+    blockquote {
+      margin: 0 6px;
+    }
+  }
+  @media screen and (min-width: 636px) {
+    .blog {
+      padding: 2px 42px;
+      blockquote {
+        margin: 0 18px;
+      }
+    }
   }
 </style>
