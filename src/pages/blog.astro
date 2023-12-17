@@ -1,19 +1,39 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "@/layout/BaseLayout.astro";
 import BlogPost from "@/components/BlogPost.astro";
 const pageTitle = "blog";
-const allPosts = await Astro.glob("../pages/posts/*.md");
+
+await getCollection("blog");
+// const allPosts = await getCollection("blog", ({ data }) => data.draft !== true);
+// const allPosts = await Astro.glob("../../content/blog/*.md");
+const allPosts = await getCollection("blog");
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="content">
-    <a href="/posts/vue">vue</a>
     <ul>
       {
-        allPosts.map((post) => {
-          return <BlogPost title={post.frontmatter.title} />;
-        })
+        allPosts &&
+          allPosts.map((post) => {
+            const posturl = String("/posts/" + post.data.title);
+            // console.log(posturl);
+            return (
+              <BlogPost
+                title={post.data.title}
+                posturl={posturl}
+                time={post.data.pubDate}
+              />
+            );
+          })
       }
     </ul>
   </div>
 </BaseLayout>
+
+<style>
+  ul {
+    padding: 0;
+    margin-top: 0;
+  }
+</style>

@@ -4,6 +4,33 @@ import Navigation from "./Navigation.astro";
 import ThemeIcon from "./ThemeIcon.astro";
 ---
 
-<Humburger />
-<Navigation />
-<ThemeIcon />
+<header class="header">
+  <Humburger />
+  <Navigation />
+  <!-- <ThemeIcon /> -->
+</header>
+
+<style>
+  .header {
+    background: #eee;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+  }
+  @media screen and (min-width: 636px) {
+    .header {
+      background: #fff;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+    }
+  }
+</style>

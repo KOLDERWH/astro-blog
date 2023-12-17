@@ -1,0 +1,11 @@
+.totop {
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    bottom: 0;
+    right: 0;
+    margin: 0 20px 20px 0;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+

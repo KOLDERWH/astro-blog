@@ -1,16 +1,57 @@
 ---
+import LinkCard from "@/components/LinkCard.astro";
 import BaseLayout from "@/layout/BaseLayout.astro";
 const pageTitle = "关于KOLDERWH";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h1>About</h1>
-  <h2>……和我的新 Astro 网站！</h2>
+  <div class="about">
+    <h1>About</h1>
 
-  <p>
-    我正在学习 Astro
-    的入门教程。这是我网站上的第二个页面，也是我自己建立的第一页面！
-  </p>
+    <h2>基本情况</h2>
+    <p>家底蹲大学，目前在找工作</p>
+    <p>小前端一枚</p>
+    <p>掌握的语言有Javascript, Java</p>
+    <p>数据库目前只会Mysql</p>
 
-  <p>随着我完成更多教程，该站点将更新，所以请继续查看我的旅程将如何进行吧！</p>
+    <h2>技术栈</h2>
+    <p>HTML, CSS, JS(ES6)</p>
+    <p>渲染框架: React, Vue</p>
+    <p>打包工具: Vite, Webpack</p>
+    <p>开发工具: Vscode, IDEA</p>
+    <p>其他: Git, Bash</p>
+
+    <h2>语言</h2>
+    <p>Javascript</p>
+    <p>Java</p>
+    <p><del>Python</del></p>
+    <p><del>C</del></p>
+    <p><del>C#</del></p>
+
+    <h2>设备</h2>
+    <p>Samsung S10+</p>
+    <p>Pixel 7</p>
+    <p>iPhone 7</p>
+    <p>orangepi-3lts</p>
+
+    <h2>外链</h2>
+    <ul>
+      <LinkCard url="https://space.bilibili.com/549336381">bli</LinkCard>
+      <LinkCard bgcolor="#222" url="https://github.com/KOLDERWH">Git</LinkCard>
+      <LinkCard bgcolor="#39d">tel</LinkCard>
+    </ul>
+  </div>
 </BaseLayout>
+
+<style>
+  ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
+  .about {
+    background: #fff;
+    padding: 4px 10px;
+    border-radius: 16px;
+  }
+</style>

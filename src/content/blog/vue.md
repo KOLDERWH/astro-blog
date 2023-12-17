@@ -1,6 +1,5 @@
 ---
-layout: "../../layout/MarkdownPostLayout.astro"
-title: "Vue学习笔记"
+title: "vue"
 description: "vue学习记录"
 author: "Kolderwh"
 pubDate: "Dec 16 2023"

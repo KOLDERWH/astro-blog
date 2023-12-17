@@ -1,8 +1,11 @@
 ---
+const { pageTitle } = Astro.props;
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
+
+import Totop from "@/components/totop/Totop.jsx";
+
 import "@/style/global.css";
-const { pageTitle } = Astro.props;
 ---
 
 <html lang="zh-cn">
@@ -15,8 +18,11 @@ const { pageTitle } = Astro.props;
   </head>
   <body>
     <Header />
-    <slot />
+    <div class="container">
+      <slot />
+    </div>
     <Footer />
+    <Totop client:load />
     <script>
       import "../script/menu.js";
     </script>

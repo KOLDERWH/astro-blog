@@ -1,19 +1,40 @@
 ---
-const { title, time } = Astro.props;
+const { title, time, posturl } = Astro.props;
 ---
 
 <style>
+  .content {
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 18px;
+    margin: 16px 0;
+    border-radius: 16px;
+    font-weight: bold;
+    text-align: center;
+    > .title {
+      display: inline-block;
+      a {
+        display: inline-block;
+        padding: 0 20px 10px;
+      }
+    }
+    > .time {
+      padding: 0 10px;
+      text-align: end;
+    }
+  }
   .title:hover {
-    background: #038;
+    /* background: #037; */
     a {
-      color: #fff;
+      color: #7af;
+      font-size: 18px;
     }
   }
 </style>
 
-<li>
+<li class="content">
   <div class="title">
-    <a href="">{title}</a>
+    <a href={posturl}>{title}</a>
   </div>
   {time && <div class="time">{time}</div>}
 </li>

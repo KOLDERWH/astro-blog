@@ -1,26 +1,57 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
+console.log(frontmatter);
+const formatImgul = (url) => {
+  return "/src/assets/img" + url;
+};
+
+const { title, author, description, pubDate, updatedDate, heroImage } =
+  Astro.props;
 ---
 
-<style>
-  .title {
-    background-color: #fff;
-    border-radius: 16px;
-  }
-  .blog {
-    margin: 0 auto;
-  }
-</style>
-
-<BaseLayout pageTitle={frontmatter.title}>
-  <div class="title">
-    <h1 class="title">{frontmatter.title}</h1>
-    <p>Written by {frontmatter.author}</p>
-    <p>pub by {frontmatter.pubDate}</p>
-    <img src={frontmatter.heroImage} width="300" alt={frontmatter.heroImage} />
+<BaseLayout pageTitle={title}>
+  <div class="head">
+    <h1 class="title item">{title}</h1>
+    <div class="author item">
+      <p>Written by {author}</p>
+    </div>
+    <div class="date item">
+      <p>pub {pubDate}</p>
+    </div>
   </div>
   <div class="blog">
     <slot />
   </div>
 </BaseLayout>
+
+<style>
+  .head {
+    background-color: #fff;
+    border-radius: 16px;
+    text-align: center;
+    padding: 6px;
+    .item {
+      margin: 0;
+      p {
+        margin: 0;
+      }
+    }
+    .img {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      img {
+        width: 100%;
+        background: center;
+      }
+    }
+  }
+  .blog {
+    overflow-x: hidden;
+    margin: 10px 0;
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 10px 6px;
+  }
+</style>
