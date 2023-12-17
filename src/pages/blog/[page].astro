@@ -1,11 +1,8 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 
-import MarkdownPostLayout from "@/layout/MarkdownPostLayout.astro";
-import type { Code, Debug } from "astro:components";
 import BlogPost from "@/components/BlogPost.astro";
 import BaseLayout from "@/layout/BaseLayout.astro";
-import type { Image } from "astro:assets";
 import Pagination from "@/components/Pagination.astro";
 
 export async function getStaticPaths({ paginate }) {
@@ -15,6 +12,17 @@ export async function getStaticPaths({ paginate }) {
   return paginate(res, { pageSize: 7 });
 }
 // 所有分页数据都在 "page" 参数中传递
+
+type Props = {
+  page: Page;
+};
+
+type Page = {
+  data: CollectionEntry<"blog">[];
+  lastPage: String;
+  currentPage: String;
+};
+
 const { page } = Astro.props;
 ---
 
@@ -25,6 +33,5 @@ const { page } = Astro.props;
       return <BlogPost {...post.data} />;
     })
   }
-  <!-- {page.currentPage + "/" + page.lastPage} -->
   <Pagination pageCount={page.lastPage} current={page.currentPage} />
 </BaseLayout>
