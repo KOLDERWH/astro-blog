@@ -1,0 +1,46 @@
+---
+const { pageCount, current } = Astro.props;
+const pageList = Array.from({ length: pageCount }, (_, index) => index + 1);
+---
+
+<div class="pagination">
+  {
+    pageList.map((page) => {
+      return (
+        <a href={"/blog/" + page}>
+          <div class:list={["item", { active: current == page }]}>
+            <span>{page}</span>
+          </div>
+        </a>
+      );
+    })
+  }
+</div>
+
+<style>
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .item {
+      cursor: pointer;
+      margin: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: #fff;
+      border-radius: 6px;
+      &:hover {
+        background-color: #333;
+        color: #fff;
+      }
+    }
+    .active {
+      background-color: #333;
+      color: #fff;
+    }
+  }
+</style>

@@ -25,7 +25,7 @@ li{
 
 .container{
     padding: 0 4px;
-    margin: 68px auto;
+    margin: 68px auto 0;
 }
 
 
@@ -58,7 +58,6 @@ li{
 
 .nav-links a {
     padding: 10px 0;
-    font-size: 1.2rem;
     font-weight: bold;
     margin: 0 10px;
 }

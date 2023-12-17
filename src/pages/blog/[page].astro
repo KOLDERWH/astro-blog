@@ -1,0 +1,30 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+
+import MarkdownPostLayout from "@/layout/MarkdownPostLayout.astro";
+import type { Code, Debug } from "astro:components";
+import BlogPost from "@/components/BlogPost.astro";
+import BaseLayout from "@/layout/BaseLayout.astro";
+import type { Image } from "astro:assets";
+import Pagination from "@/components/Pagination.astro";
+
+export async function getStaticPaths({ paginate }) {
+  const res = await getCollection("blog");
+
+  // 根据宇航员数组生成页面，每页2项
+  return paginate(res, { pageSize: 7 });
+}
+// 所有分页数据都在 "page" 参数中传递
+const { page } = Astro.props;
+---
+
+<BaseLayout>
+  {
+    page.data.map((post) => {
+      console.log(post);
+      return <BlogPost {...post.data} />;
+    })
+  }
+  <!-- {page.currentPage + "/" + page.lastPage} -->
+  <Pagination pageCount={page.lastPage} current={page.currentPage} />
+</BaseLayout>

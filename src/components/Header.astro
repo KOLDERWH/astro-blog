@@ -1,13 +1,16 @@
 ---
+import { Image } from "astro:assets";
 import Humburger from "./Humburger.astro";
 import Navigation from "./Navigation.astro";
 import ThemeIcon from "./ThemeIcon.astro";
+
+import avatar from "@/assets/avatar/avatar.jpg";
 ---
 
 <header class="header">
   <!-- <Humburger /> -->
   <div class="profile">
-    <img src="/src/assets/avatar/avatar.jpg" alt="" />
+    <Image src={avatar} alt="descriptive text" width="184" height="184" />
     <div class="info">Kolderwh's 部落阁</div>
   </div>
   <Navigation />
@@ -17,18 +20,18 @@ import ThemeIcon from "./ThemeIcon.astro";
 <style>
   .header {
     background: inherit;
-    /* filter: blur(1px); */
-    /* background: #fff; */
     background: rgba(255, 255, 255, 0.96);
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: 1px solid #999;
+    z-index: 2;
   }
   .profile {
     display: flex;
@@ -41,13 +44,16 @@ import ThemeIcon from "./ThemeIcon.astro";
     }
     .info {
       font-weight: bold;
+      /* font-size: 1.2rem; */
     }
   }
   @media screen and (max-width: 636px) {
-    .profile {
-      font-size: 14px;
-      img {
-        display: block;
+    .header {
+      font-size: 16px;
+      .profile {
+        img {
+          display: block;
+        }
       }
     }
   }

@@ -17,5 +17,7 @@ export default function Totop() {
   });
   }
 
-	return  <>{isShow && <div class="totop" onClick={toTopClickhandle}></div>}</> 
+	return  <>{isShow && <div className="totop" onClick={toTopClickhandle}>
+    <div className="arrowtop"></div>
+      </div>}</> 
 }

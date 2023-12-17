@@ -1,20 +1,23 @@
 ---
-const { postcount } = Astro.props;
+import { Image } from "astro:assets";
+const { postcount, tagsCount } = Astro.props;
+import avatar from "@/assets/avatar/avatar.jpg";
 ---
 
 <div class="profilecard">
   <div class="avatar">
-    <img src="/src/assets/avatar/avatar.jpg" alt="" />
+    <Image src={avatar} alt="avatra" width="184" height="184" />
+    <!-- <img src="/src/assets/avatar/avatar.jpg" alt="" /> -->
   </div>
   <div class="author">Kolderwh</div>
   <div class="status">
-    <a href="/blog">
+    <a href="/">
       <div class="item">POSTS</div>
       <div>{postcount}</div>
     </a>
     <a href="/tags">
       <div class="item">TAGS</div>
-      <div>{postcount}</div>
+      <div>{tagsCount}</div>
     </a>
   </div>
   <div class="extralink"></div>
@@ -29,6 +32,12 @@ const { postcount } = Astro.props;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    -webkit-box-shadow: 7px 3px 15px -4px #333;
+    box-shadow: 7px 3px 15px -4px #333;
+    &:hover {
+      -webkit-box-shadow: 3px 3px 12px 7px #333;
+      box-shadow: 3px 3px 12px 7px #333;
+    }
     .avatar {
       margin: 20px 0;
       width: 150px;

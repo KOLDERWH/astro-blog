@@ -8,6 +8,12 @@ const pageTitle = "blog";
 
 await getCollection("blog");
 const allPosts = await getCollection("blog");
+
+const tagsPosts = (await getCollection("blog")).filter(
+  (post) => post.data.tags
+);
+
+const uniqueTag = [...new Set(tagsPosts.map((post) => post.data.tags).flat())];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -16,7 +22,7 @@ const allPosts = await getCollection("blog");
       {allPosts && <PostCardRen posts={allPosts} />}
     </ul>
     <div class="profile">
-      <ProfileCard postcount={allPosts.length} />
+      <ProfileCard postcount={allPosts.length} tagsCount={uniqueTag.length} />
     </div>
   </div>
 </BaseLayout>
@@ -35,6 +41,7 @@ const allPosts = await getCollection("blog");
     flex: 3;
     padding: 0;
     margin-top: 0;
+    margin-bottom: 0;
   }
   /* 手机 */
   @media screen and (max-width: 636px) {

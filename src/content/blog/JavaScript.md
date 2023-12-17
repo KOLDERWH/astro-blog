@@ -4,7 +4,7 @@ description: "Javascript学习笔记"
 author: "Kolderwh"
 pubDate: "Oct 1 2023"
 heroImage: "/javascript.png"
-tags: ["javascript"]
+tags: ["js"]
 ---
 
 > 垃圾回收（Garbage collection）

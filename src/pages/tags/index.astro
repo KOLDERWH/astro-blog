@@ -38,13 +38,20 @@ const uniqueTag = [...new Set(tagsPosts.map((post) => post.data.tags).flat())];
     .card {
       padding: 8px;
       width: 25%;
-      --heihht: 20px;
+      --height: 20px;
       a {
         display: flex;
         align-items: center;
         border: 1px solid #ccc;
         border-radius: 9px;
         padding: 0 8px;
+        color: #555;
+        -webkit-box-shadow: 7px 3px 15px -4px #333;
+        box-shadow: 7px 3px 15px -4px #333;
+        &:hover {
+          color: var(--hovercolor);
+          text-decoration: underline;
+        }
       }
       .icon {
         width: 16px;
@@ -53,14 +60,8 @@ const uniqueTag = [...new Set(tagsPosts.map((post) => post.data.tags).flat())];
       .tag {
         cursor: pointer;
         padding: 8px;
-        height: var(--heihht);
-        line-height: var(--heihht);
-
-        color: #555;
-        &:hover {
-          color: var(--hovercolor);
-          text-decoration: underline;
-        }
+        height: var(--height);
+        line-height: var(--height);
       }
     }
   }
