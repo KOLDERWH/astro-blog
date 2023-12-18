@@ -3,5 +3,11 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-     integrations: [preact()],
+   integrations: [preact()],
+   redirects: {
+    '/': '/blog/1',
+    '/blog': '/blog/1'
+  }
+
 });
+

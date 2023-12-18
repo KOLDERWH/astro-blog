@@ -1,52 +1,9 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "@/layout/BaseLayout.astro";
-import ProfileCard from "@/components/ProfileCard.astro";
-import PostCardRen from "@/components/PostCardRen.astro";
-
-const pageTitle = "blog";
-
-await getCollection("blog");
-const allPosts = await getCollection("blog");
-
-const tagsPosts = (await getCollection("blog")).filter(
-  (post) => post.data.tags
-);
-
-const uniqueTag = [...new Set(tagsPosts.map((post) => post.data.tags).flat())];
+const pageTitle = "首页";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <div class="content">
-    <ul>
-      {allPosts && <PostCardRen posts={allPosts} />}
-    </ul>
-    <div class="profile">
-      <ProfileCard postcount={allPosts.length} tagsCount={uniqueTag.length} />
-    </div>
-  </div>
+  <h2>Kolderwh's Blog</h2>
+  <h2>Hi,here is Kolderwh</h2>
 </BaseLayout>
-
-<style>
-  .content {
-    display: flex;
-    .profile {
-      flex: 1;
-      margin-top: 16px;
-      margin-left: 24px;
-    }
-  }
-
-  ul {
-    flex: 3;
-    padding: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  /* 手机 */
-  @media screen and (max-width: 636px) {
-    .profile {
-      display: none;
-    }
-  }
-</style>

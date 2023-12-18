@@ -14,6 +14,11 @@ import "@/style/global.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="../style/waline.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
     <title>{pageTitle}</title>
   </head>
   <body>
@@ -21,7 +26,24 @@ import "@/style/global.css";
     <div class="container">
       <slot />
     </div>
+    <div id="waline"></div>
     <Footer />
     <Totop client:load />
+    <script>
+      import { init } from "../script/waline.mjs";
+
+      init({
+        el: "#waline",
+        serverURL: "http://141.11.211.83:8360/",
+      });
+    </script>
   </body>
+  <style>
+    #waline {
+      background: #fff;
+      border-radius: 14px;
+      padding: 10px;
+      margin: 0 6px;
+    }
+  </style>
 </html>
