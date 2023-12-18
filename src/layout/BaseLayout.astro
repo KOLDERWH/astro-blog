@@ -26,7 +26,19 @@ import "@/style/global.css";
     <div class="container">
       <slot />
     </div>
-    <div id="waline"></div>
+    <div class="wallcontainer">
+      <div class="info">
+        <div class="readcount">
+          阅读量: <span
+            class="waline-pageview-count"
+            data-path="<Your/Path/Name>"></span>
+        </div>
+         当前页共有<span
+          class="waline-comment-count"
+          data-path="/guide/client/count.html"></span>条评论
+      </div>
+      <div id="waline"></div>
+    </div>
     <Footer />
     <Totop client:load />
     <script>
@@ -34,16 +46,32 @@ import "@/style/global.css";
 
       init({
         el: "#waline",
-        serverURL: "http://141.11.211.83:8360/",
+        pageview: true, // 浏览量统计
+        comment: true, // 评论数统计
+        // serverURL: "http://141.11.211.83:8360/",
+        serverURL: "http://192.168.6.172:8360/",
       });
     </script>
   </body>
   <style>
-    #waline {
+    .wallcontainer {
       background: #fff;
       border-radius: 14px;
       padding: 10px;
       margin: 0 6px;
+      -webkit-box-shadow: 7px 3px 15px -4px #333;
+      box-shadow: 7px 3px 15px -4px #333;
+      &:hover {
+        -webkit-box-shadow: 3px 3px 12px 7px #333;
+        box-shadow: 3px 3px 12px 7px #333;
+      }
+      .info {
+        display: flex;
+        justify-content: center;
+        .readcount {
+          margin-right: 16px;
+        }
+      }
     }
   </style>
 </html>
