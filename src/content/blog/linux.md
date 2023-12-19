@@ -1,8 +1,8 @@
 ---
 title: "linux"
-description: "Lorem ipsum dolor sit amet"
+description: "Some linux error"
 pubDate: "Jul 08 2022"
-heroImage: "/blog-placeholder-3.jpg"
+tags: ["linux"]
 ---
 
 ## yum

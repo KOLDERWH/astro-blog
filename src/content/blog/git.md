@@ -1,8 +1,8 @@
 ---
 title: "git"
-description: "git command"
+description: "git command and commit standard"
 pubDate: "Jul 20 2023"
-heroImage: "/blog-placeholder-3.jpg"
+tags: ["git"]
 ---
 
 # git

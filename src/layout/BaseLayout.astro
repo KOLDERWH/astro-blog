@@ -6,6 +6,7 @@ import Footer from "@/components/Footer.astro";
 import Totop from "@/components/totop/Totop.jsx";
 
 import "@/style/global.css";
+import Comment from "@/components/Comment.astro";
 ---
 
 <html lang="zh-cn">
@@ -14,11 +15,6 @@ import "@/style/global.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="stylesheet" href="../style/waline.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@waline/client@v2/dist/waline.css"
-    />
     <title>{pageTitle}</title>
   </head>
   <body>
@@ -26,51 +22,8 @@ import "@/style/global.css";
     <div class="container">
       <slot />
     </div>
-    <div class="wallcontainer">
-      <div class="info">
-        <div class="readcount">
-          阅读量: <span
-            class="waline-pageview-count"
-            data-path="<Your/Path/Name>"></span>
-        </div>
-         当前页共有<span
-          class="waline-comment-count"
-          data-path="/guide/client/count.html"></span>条评论
-      </div>
-      <div id="waline"></div>
-    </div>
+    <Comment />
     <Footer />
     <Totop client:load />
-    <script>
-      import { init } from "../script/waline.mjs";
-
-      init({
-        el: "#waline",
-        pageview: true, // 浏览量统计
-        comment: true, // 评论数统计
-        serverURL: "comment backend url",
-      });
-    </script>
   </body>
-  <style>
-    .wallcontainer {
-      background: #fff;
-      border-radius: 14px;
-      padding: 10px;
-      margin: 0 32px;
-      -webkit-box-shadow: 7px 3px 15px -4px #333;
-      box-shadow: 7px 3px 15px -4px #333;
-      &:hover {
-        -webkit-box-shadow: 3px 3px 12px 7px #333;
-        box-shadow: 3px 3px 12px 7px #333;
-      }
-      .info {
-        display: flex;
-        justify-content: center;
-        .readcount {
-          margin-right: 16px;
-        }
-      }
-    }
-  </style>
 </html>

@@ -4,9 +4,9 @@ const { title, pubDate, description, tags } = Astro.props;
 const posturl = String("/posts/" + title);
 ---
 
-<li class="content">
+<li class="content shadows">
   <!-- <a class="container" href={posturl}> -->
-  <div class="title">
+  <div class="title hovereffect">
     <a href={posturl}> {title}</a>
   </div>
   <div class="desc">{description}</div>
@@ -16,7 +16,7 @@ const posturl = String("/posts/" + title);
       <div class="tags">
         {tags.map((tag) => {
           return (
-            <div class="wrapper">
+            <div class="wrapper hovereffect">
               <a class="tagcontainer" href={"/tags/" + tag}>
                 <div class="tag">
                   <Icon name="tag" />
@@ -42,13 +42,6 @@ const posturl = String("/posts/" + title);
     font-weight: bold;
     padding: 6px 10px;
     position: relative;
-    -webkit-box-shadow: 7px 3px 15px -4px #333;
-    box-shadow: 7px 3px 15px -4px #333;
-    &:hover {
-      /* background-color: var(--hovercolor); */
-      -webkit-box-shadow: 3px 3px 12px 7px #333;
-      box-shadow: 3px 3px 12px 7px #333;
-    }
     /* .container {
       display: inline-block;
     } */
@@ -59,11 +52,6 @@ const posturl = String("/posts/" + title);
       display: inline-block;
       display: inline-block;
       padding: 0 20px 10px;
-      &:hover {
-        a {
-          color: var(--hovercolor);
-        }
-      }
     }
     .desc {
       font-size: 14px;
@@ -85,9 +73,6 @@ const posturl = String("/posts/" + title);
         > .tagcontainer {
           display: flex;
           align-items: center;
-          &:hover {
-            color: var(--hovercolor);
-          }
           .tag {
             width: 15px;
             height: 16px;

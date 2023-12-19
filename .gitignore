@@ -1,5 +1,7 @@
 # build output
 dist/
+dist.*
+dist.bat
 # generated types
 .astro/
 

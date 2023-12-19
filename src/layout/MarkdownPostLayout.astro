@@ -1,22 +1,23 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-const { frontmatter } = Astro.props;
-console.log(frontmatter);
+import "@/style/markdown.css";
 const formatImgul = (url) => {
   return "/src/assets/img" + url;
 };
 
-const { title, author, pubDate, tags } = Astro.props;
+const { title, description, pubDate, tags } = Astro.props;
 ---
 
 <BaseLayout pageTitle={title}>
   <div class="blog">
     <h1 class="title">{title}</h1>
+    <div class="desc">{description}</div>
     <div class="date">
       <p>pub {pubDate}</p>
     </div>
-    {tags && <div class="tags">#{[...tags]}</div>}
-    <slot />
+    <article class="article">
+      <slot />
+    </article>
   </div>
 </BaseLayout>
 
@@ -27,15 +28,6 @@ const { title, author, pubDate, tags } = Astro.props;
     border-radius: 8px;
     padding: 10px 32px;
     text-align: justify;
-    blockquote {
-      margin: 0 6px;
-    }
-    p {
-      word-break: break-all;
-      word-wrap: break-word;
-      padding: 0;
-      text-align: justify;
-    }
   }
   .title {
     margin: 8px 0;

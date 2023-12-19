@@ -7,11 +7,13 @@ import Pagination from "@/components/Pagination.astro";
 import PostCardRen from "@/components/PostCardRen.astro";
 import ProfileCard from "@/components/ProfileCard.astro";
 
+const PER_PAGE = 6;
+
 export async function getStaticPaths({ paginate }) {
   const res = await getCollection("blog");
 
   // 根据宇航员数组生成页面，每页2项
-  return paginate(res, { pageSize: 7 });
+  return paginate(res, { pageSize: 6 });
 }
 // 所有分页数据都在 "page" 参数中传递
 
@@ -23,6 +25,7 @@ type Page = {
   data: CollectionEntry<"blog">[];
   lastPage: String;
   currentPage: String;
+  total: number;
 };
 
 const { page } = Astro.props;
@@ -34,22 +37,17 @@ const tagsPosts = (await getCollection("blog")).filter(
 const uniqueTag = [...new Set(tagsPosts.map((post) => post.data.tags).flat())];
 ---
 
-<!-- <BaseLayout>
-  {
-    page.data.map((post) => {
-      console.log(post);
-      return <BlogPost {...post.data} />;
-    })
-  }
-  <Pagination pageCount={page.lastPage} current={page.currentPage} />
-</BaseLayout> -->
 <BaseLayout pageTitle={pageTitle}>
   <div class="content">
     <div class="container">
       <ul>
         {page.data && <PostCardRen posts={page.data} />}
       </ul>
-      <Pagination pageCount={page.lastPage} current={page.currentPage} />
+      {
+        page.total > PER_PAGE && (
+          <Pagination pageCount={page.lastPage} current={page.currentPage} />
+        )
+      }
     </div>
     <div class="profile">
       <ProfileCard postcount={page.data.length} tagsCount={uniqueTag.length} />

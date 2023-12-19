@@ -12,7 +12,6 @@ body{
     width: 100%;
     margin: 0;
     background: var(--darkfont);
-    /* background: var(--primarycolor); */
 }
 
 a{
@@ -29,20 +28,6 @@ li{
 }
 
 
- /* 导航样式 */
- .hamburger {
-     padding-right: 20px;
-     cursor: pointer;
- }
-
- .hamburger .line {
-     display: block;
-     width: 30px;
-     height: 5px;
-     margin-bottom: 10px;
-     background-color: #ff9776;
- }
-
 /* 导航样式 */
 
 .nav-links {
@@ -56,20 +41,13 @@ li{
     z-index: 2;
 }
 
-.nav-links a {
+.profile>.info, .nav-links a {
     padding: 10px 0;
     font-weight: bold;
     margin: 0 10px;
 }
 
-.nav-links a:hover,
-.nav-links a:focus {
-    color:var(--hovercolor)
-}
 
-.expanded {
-    display: unset;
-}
 
 /* pc端 */
 @media screen and (min-width: 636px) {
@@ -90,15 +68,20 @@ li{
     .nav-links a {
         padding: 15px 20px;
     }
-        
-    /* .hamburger {
-        display: none;
-    } */
 
-    .about {
-        background: #eee;
-        padding: 4px 10px;
-        border-radius: 16px;
+    .shadows {
+        -webkit-box-shadow: 3px 3px 28px #555;
+        box-shadow: 3px 3px 28px #555;
+
+        &:hover {
+            -webkit-box-shadow: 7px 3px 20px #333;
+            box-shadow: 7px 3px 20px #333;
+        }
+    }
+    .hovereffect{
+        *:hover,&:hover{
+            color: var(--hovercolor)
+        }
     }
 
 }

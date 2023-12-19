@@ -1,8 +1,8 @@
 ---
 title: "React"
-description: "Lorem ipsum dolor sit amet"
+description: "React syntax and and tip"
 pubDate: "Jul 08 2022"
-heroImage: "/blog-placeholder-3.jpg"
+tags: ["react"]
 ---
 
 ## this 綁定
@@ -69,7 +69,7 @@ render 可以返回 react 元素(jsx),子组件，数组，fragments，Portals�
 
 mounting(constructor)=>updating(render)=>unmounting
 
-![image-20231121171117326](C:\Users\loc\AppData\Roaming\Typora\typora-user-images\image-20231121171117326.png)
+![image-20231121171117326](src/assets/img/image-20231121171117326.png)
 
 ## 通信
 

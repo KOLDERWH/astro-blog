@@ -2,7 +2,7 @@
 title: "CSS 基础"
 description: "CSS的基本知识"
 pubDate: "Oct 22 2022"
-heroImage: "/blog-placeholder-4.jpg"
+tags: ["css"]
 ---
 
 ## 一、CSS 基础
@@ -532,51 +532,36 @@ transform：scale（），通过缩放来缩小
 
 方法一：利用定位（常用方法,推荐）
 
+```javascript
 .parent{
-
-position:relative;
-
+	position:relative;
 }
-
 .child{
-
-position:absolute;
-
-top:50%;
-
-left:50%;
-
-margin-top:-50px;
-
-margin-left:-50px;
-
+	position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-50px;
+    margin-left:-50px;
 }
+```
 
 方法一的原理就是定位中心点是盒子的左上顶点，所以定位之后我们需要回退盒子一半的距离。
 
 方法二：利用 margin:auto;
 
+```javascript
 .parent{
-
-position:relative;
-
+	position:relative;
 }
-
 .child{
-
-position:absolute;
-
-margin:auto;
-
-top:0;
-
-left:0;
-
-right:0;
-
-bottom:0;
-
+    position:absolute;
+    margin:auto;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
 }
+```
 
 方法三：利用 display:table-cell;
 
@@ -709,7 +694,7 @@ let:calc(200px);//（父元素宽-子元素宽）÷ 2=200px
 - **clip/clip-path** ：使用元素裁剪的方法来实现元素的隐藏，这种方法下，元素仍在页面中占据位置，但是不会响应绑定的监听事件。
 - **transform: scale(0,0)**：将元素缩放为 0，来实现元素的隐藏。这种方法下，元素仍在页面中占据位置，但是不会响应绑定的监听事件。
 
-​ **· rgba 设置颜色, 将 a 的值设置为 0 ：**rgba 的 a 设置的是 alpha 值, 可以设置透明度, 不影响子元素
+  **· rgba 设置颜色, 将 a 的值设置为 0 ：**rgba 的 a 设置的是 alpha 值, 可以设置透明度, 不影响子元素
 
 ### 3.背景图片居中（掌握）
 
