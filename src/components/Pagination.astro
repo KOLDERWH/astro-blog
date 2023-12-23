@@ -1,9 +1,24 @@
 ---
-const { pageCount, current } = Astro.props;
-const pageList = Array.from({ length: pageCount }, (_, index) => index + 1);
+const { pageCount, current ,itemLength,url} = Astro.props
+let pageList=[]
+let isOverlength=false;
+if(pageCount<itemLength){
+  pageList = Array.from({ length: pageCount }, (_, index) => index + 1);
+}else{
+  isOverlength = true
+  // 点击的分页距离左边开始位置的距离
+  const toLeft = Math.floor(itemLength/2)
+  // 用于控制距离右边的距离
+  const  toRight= itemLength-1;
+  // 限制开始
+  let startIndex  = current-toLeft>1?current-toLeft:1;
+  // 限制结尾
+  startIndex = startIndex>(pageCount-toRight)?pageCount-toRight:startIndex
+  pageList = Array.from({ length: itemLength }, (_, index) => index + startIndex);
+}
 ---
-
 <div class="pagination">
+  {isOverlength && current>1&&<a href={url.prev} class="item">上一个</a> }
   {
     pageList.map((page) => {
       return (
@@ -15,6 +30,8 @@ const pageList = Array.from({ length: pageCount }, (_, index) => index + 1);
       );
     })
   }
+  {isOverlength&& current!=pageCount&&  <a href={url.next} class="item">下一个</a> }
+
 </div>
 
 <style>
@@ -29,8 +46,7 @@ const pageList = Array.from({ length: pageCount }, (_, index) => index + 1);
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
-      height: 32px;
+      padding: 4px 10px;
       background: #fff;
       border-radius: 6px;
       &:hover {

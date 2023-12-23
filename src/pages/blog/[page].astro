@@ -1,22 +1,22 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 
-import BlogPost from "@/components/BlogPost.astro";
 import BaseLayout from "@/layout/BaseLayout.astro";
 import Pagination from "@/components/Pagination.astro";
 import PostCardRen from "@/components/PostCardRen.astro";
 import ProfileCard from "@/components/ProfileCard.astro";
 
-const PER_PAGE = 6;
+// 每一页含有的文章数量
+const PER_PAGE = 5;
+// 显示的页码个数
+const PAGI_LENGTH= 5;
 
 export async function getStaticPaths({ paginate }) {
   const res = await getCollection("blog");
-
-  // 根据宇航员数组生成页面，每页2项
-  return paginate(res, { pageSize: 6 });
+  return paginate(res, { pageSize: 5 });
 }
-// 所有分页数据都在 "page" 参数中传递
 
+// 所有分页数据都在 "page" 参数中传递
 type Props = {
   page: Page;
 };
@@ -25,6 +25,7 @@ type Page = {
   data: CollectionEntry<"blog">[];
   lastPage: String;
   currentPage: String;
+  url:String;
   total: number;
 };
 
@@ -45,7 +46,10 @@ const uniqueTag = [...new Set(tagsPosts.map((post) => post.data.tags).flat())];
       </ul>
       {
         page.total > PER_PAGE && (
-          <Pagination pageCount={page.lastPage} current={page.currentPage} />
+          <Pagination pageCount={page.lastPage}
+          itemLength={PAGI_LENGTH}
+          url={page.url}
+          current={page.currentPage} />
         )
       }
     </div>
