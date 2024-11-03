@@ -22,7 +22,7 @@ if(pageCount<itemLength){
   {
     pageList.map((page) => {
       return (
-        <a href={"/blog/" + page}>
+        <a href={page === 1 ? "/" : `/${page}`}>
           <div class:list={["item", { active: current == page }]}>
             <span>{page}</span>
           </div>

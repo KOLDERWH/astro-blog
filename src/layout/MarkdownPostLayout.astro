@@ -6,27 +6,38 @@ const formatImgul = (url) => {
 };
 
 const { title, description, pubDate, tags } = Astro.props;
+
+const year = pubDate.getFullYear()
+const month = pubDate.getMonth()+1
+const day = pubDate.getDate()
+const time = `${year}年${month}月${day}日`
 ---
 
 <BaseLayout pageTitle={title}>
-  <div class="blog">
-    <h1 class="title">{title}</h1>
-    <div class="desc">{description}</div>
-    <div class="date">
-      <p>pub {pubDate}</p>
+  <div class="blogWrapper flex-grow">
+
+    <div class="blog contentRadius">
+      <!-- <div class="desc">{description}</div> -->
+      <h1 class="title">{title}</h1>
+      <div class="date">
+        <!-- <p>pub {pubDate}</p> -->
+        <p>{time}</p>
+      </div>
+      <article class="article">
+        <slot />
+      </article>
     </div>
-    <article class="article">
-      <slot />
-    </article>
   </div>
 </BaseLayout>
 
 <style>
+  .blogWrapper{
+    box-sizing:border-box;
+    padding: 0 12px;
+  }
   .blog {
-    margin: 10px 0;
+    padding: 10px 24px;
     background-color: #fff;
-    border-radius: 8px;
-    padding: 10px 32px;
     text-align: justify;
   }
   .title {
@@ -41,10 +52,8 @@ const { title, description, pubDate, tags } = Astro.props;
   }
   @media screen and (min-width: 636px) {
     .blog {
-      padding: 2px 42px;
-      blockquote {
-        margin: 0 18px;
-      }
+      padding: 12 px;
     }
+
   }
 </style>

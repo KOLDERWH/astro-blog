@@ -1,35 +1,55 @@
 ---
-import { Icon } from "astro-icon";
-const { title, pubDate, description, tags } = Astro.props;
+// import { Icon } from "astro-icon";
+const { title, pubDate, description, tags,cover } = Astro.props;
 const posturl = String("/posts/" + title);
+
+
+const year = pubDate.getFullYear()
+const month = pubDate.getMonth()+1
+const day = pubDate.getDate()
+const time = `${year}-${month}-${day}`
+
+let coverImgPaht = cover??"cover.jpg"
+
 ---
 
-<li class="content shadows">
-  <!-- <a class="container" href={posturl}> -->
-  <div class="title hovereffect">
-    <a href={posturl}> {title}</a>
-  </div>
-  <div class="desc">{description}</div>
-  <div class="time">{pubDate}</div>
-  {
-    tags && (
-      <div class="tags">
-        {tags.map((tag) => {
-          return (
-            <div class="wrapper hovereffect">
-              <a class="tagcontainer" href={"/tags/" + tag}>
-                <div class="tag">
-                  <Icon name="tag" />
-                </div>
-                <span>{tag}</span>
-              </a>
+<li class="content contentRadius shadows flex">
+  <!-- <div class="wrapper"> -->
+    <div class="img">
+      <!-- <img class="contentRadius" src="/cover/cover.jpg" alt="cover" height="160"> -->
+      <img class="contentRadius cover" src={"/cover/"+coverImgPaht} >
+    </div>
+    <div class="article flex flex-grow">
+      <!-- <a class="container" href={posturl}> -->
+       <div class="flex spaceBetween">
+         <div class="title hovereffect">
+           <a href={posturl}> {title}</a>
+          </div>
+          <div class="time">{time }</div>
+       </div>
+       <div class="excerpt flex-grow">{description}</div>
+      <!-- <div class="spaceBetween flex"> -->
+        <!-- <div class="time">{pubDate}</div> -->
+        {
+          tags && (
+            <div class="tags flex">
+              {tags.map((tag) => {
+                return (
+                  <div class="wrapper hovereffect">
+                    <a class="tagcontainer" href={"/tags/" + tag}>
+                      <span>#{tag}</span>
+                    </a>
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
-      </div>
-    )
-  }
-  <!-- </a> -->
+          )
+        }
+      <!-- </div> -->
+      <!-- </a> -->
+
+    </div>
+  <!-- </div> -->
 </li>
 
 <style>
@@ -38,52 +58,103 @@ const posturl = String("/posts/" + title);
     background-color: #fff;
     font-size: 18px;
     margin-bottom: 16px;
-    border-radius: 16px;
     font-weight: bold;
-    padding: 6px 10px;
+    padding: 6px;
     position: relative;
-    /* .container {
-      display: inline-block;
-    } */
-
-    .title {
-      font-size: 26px;
-      text-align: left;
-      display: inline-block;
-      display: inline-block;
-      padding: 0 20px 10px;
-    }
-    .desc {
-      font-size: 14px;
-      color: #555;
-      font-weight: normal;
+    .img{
+      min-width: 180px;
+      min-height: 160px;
+      max-height: 100%;
       overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
+      position: relative;
+      padding: 4px;
+      .cover{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        object-fit: contain;
+        max-width: 100%;
+        height: auto;
+        overflow: hidden;
+      }
     }
-    .tags {
-      display: flex;
-      font-weight: normal;
-      font-size: 14px;
-      position: absolute;
-      bottom: 6px;
-      > .wrapper {
-        margin-right: 6px;
-        > .tagcontainer {
-          display: flex;
-          align-items: center;
-          .tag {
-            width: 15px;
-            height: 16px;
+    .article{
+      flex-direction: column;
+      padding: 4px 12px;
+      .title {
+        font-size: 26px;
+        text-align: left;
+        display: inline-block;
+      }
+      .time {
+        color: #aaa;
+        font-size: 16px;
+      }
+      .excerpt {
+        font-size: 20px;
+        color: #718096;
+        font-weight: normal;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-align: left;  
+        white-space: nowrap;       
+        overflow: hidden;
+        text-overflow: ellipsis;  
+      }
+      .tags {
+        bottom: 6px;
+        text-align: right;
+        > .wrapper {
+          margin-right: 6px;
+          > .tagcontainer {
+            display: flex;
+            align-items: center;
+            color:#777;
+            .tag {
+              width: 16px;
+              height: 16px;
+              display: flex;
+              align-items: center;
+            }
+            span{
+                margin-left: 4px;
+              }
           }
         }
       }
+
     }
-    .time {
-      color: #999;
-      padding: 0 10px;
-      text-align: end;
+
+  }
+  .content:last-child{
+    margin: 0;
+  }
+
+  @media screen and (max-width: 636px) {
+
+    .content{
+      flex-direction: column;
+      min-width: 180px;
+      max-height: 300px;
+      overflow: hidden;
+      position: relative;
+      .cover{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        object-fit: contain;
+        max-width: 100%;
+        height: auto;
+      }
+      .tags{
+        display: flex;
+        font-weight: normal;
+        font-size: 18px;
+      }
     }
   }
 </style>

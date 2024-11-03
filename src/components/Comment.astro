@@ -3,7 +3,7 @@ import "@/style/waline.css";
 ---
 
 <div class="wallcontainer shadows">
-  <div class="info">
+  <div class="info flex">
     <div class="readcount">
       阅读量: <span class="waline-pageview-count" data-path="<Your/Path/Name>"
       ></span>
@@ -31,10 +31,11 @@ import "@/style/waline.css";
     box-sizing: border-box;
     background: #fff;
     border-radius: 14px;
-    padding: 10px;
-    margin: 12px 22px;
+    /* padding: 10px; */
+    padding: 12px 3px 0;
+    /* margin: 12px 22px; */
+    /* margin: 12px 3px 0; */
     .info {
-      display: flex;
       justify-content: center;
       .readcount {
         margin-right: 16px;
@@ -43,7 +44,8 @@ import "@/style/waline.css";
   }
   @media screen and (min-width: 636px) {
     .wallcontainer {
-      margin: 18px 16px 0;
+      /* margin: 18px 16px 0; */
+      margin: 18px 3px 0;
       -webkit-box-shadow: 7px 3px 15px -4px #333;
       box-shadow: 7px 3px 15px -4px #333;
       &:hover {

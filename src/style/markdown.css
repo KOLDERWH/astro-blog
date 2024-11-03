@@ -46,7 +46,7 @@ code {
 
 @media screen and (min-width: 636px) {
     blockquote {
-            margin: 0 6px;
+            /* margin: 0 6px; */
         }
     pre {
         margin: 6px 10px;

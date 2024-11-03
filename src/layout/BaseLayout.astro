@@ -7,6 +7,7 @@ import Totop from "@/components/totop/Totop.jsx";
 
 import "@/style/global.css";
 import Comment from "@/components/Comment.astro";
+import ProfileCard from "@/components/ProfileCard.astro";
 ---
 
 <html lang="zh-cn">
@@ -19,10 +20,11 @@ import Comment from "@/components/Comment.astro";
   </head>
   <body>
     <Header />
-    <div class="container">
-      <slot />
-    </div>
-    <Comment />
+      <div class="main flex">
+        <ProfileCard/>
+        <slot />
+      </div>
+      <Comment />
     <Footer />
     <Totop client:load />
   </body>

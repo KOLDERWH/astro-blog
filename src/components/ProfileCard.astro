@@ -1,67 +1,85 @@
 ---
-import { Image } from "astro:assets";
+// import { Image } from "astro:assets";
 const { postcount, tagsCount } = Astro.props;
-import avatar from "@/assets/avatar/avatar.jpg";
+// import avatar from "@/assets/avatar/avatar.jpg";
+// import avatar from "/avatar/avatar.jpg";
 ---
 
-<div class="profilecard shadows">
-  <div class="avatar">
-    <Image src={avatar} alt="avatra" width="184" height="184" />
-    <!-- <img src="/src/assets/avatar/avatar.jpg" alt="" /> -->
+<div class="wrapper">
+  <div class="profilecard  contentRadius shadows">
+    <div class="card">
+      <div class="avatar">
+        <img src="/avatar/avatar.jpg" alt="avatar" width="184" height="184">
+      </div>
+      <div class="author">Kolderwh</div>
+      <div class="status hovereffect">
+        <a href="/">
+          <div class="item">POSTS</div>
+          <div>{postcount}</div>
+        </a>
+        <a href="/tags">
+          <div class="item">TAGS</div>
+          <div>{tagsCount}</div>
+        </a>
+      </div>
+      <div class="extralink"></div>
+
+    </div>
   </div>
-  <div class="author">Kolderwh</div>
-  <div class="status hovereffect">
-    <a href="/">
-      <div class="item">POSTS</div>
-      <div>{postcount}</div>
-    </a>
-    <a href="/tags">
-      <div class="item">TAGS</div>
-      <div>{tagsCount}</div>
-    </a>
-  </div>
-  <div class="extralink"></div>
 </div>
 
 <style>
-  .profilecard {
-    background: #eee;
-    border-radius: 16px;
-    padding: 10px 0;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    .avatar {
-      margin: 20px 0;
-      width: 150px;
-      height: 150px;
-      img {
-        object-fit: cover;
-        border-radius: 50%;
-        width: 100%;
-        height: 100%;
-      }
-    }
-    .author {
-      margin: 10px 0;
-      font-weight: bold;
-      font-size: 20px;
-    }
-    .status {
-      box-sizing: border-box;
-      padding: 0 18px;
-      width: 100%;
+  .wrapper{
+    padding: 0 4px;
+    .profilecard {
+      background: #eee;
       display: flex;
-      justify-content: space-around;
-      a {
-        display: flex;
-        text-align: center;
-        flex-direction: column;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      .card{
+        padding: 12px;
+        .avatar {
+          margin: 20px 0;
+          width: 150px;
+          height: 150px;
+          img {
+            object-fit: cover;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .author {
+          margin: 10px 0;
+          font-weight: bold;
+          font-size: 20px;
+          text-align: center;
+        }
+        .status {
+          box-sizing: border-box;
+          padding: 0 18px;
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          a {
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+          }
+          .item {
+            cursor: pointer;
+          }
+        }
+
       }
-      .item {
-        cursor: pointer;
-      }
+  }
+}
+
+@media screen and (max-width: 636px) {
+    .wrapper{
+      display: none;
     }
   }
+
 </style>

@@ -1,12 +1,19 @@
 ---
 import BlogPost from "@/components/BlogPost.astro";
-const { posts } = Astro.props;
+const { posts  } = Astro.props;
+
+export interface post{
+  title:string
+  description:string
+  pubDate:Date
+  tags:Array<string>
+}
 ---
 
 {
   posts.map((post) => {
-    const { title, description, pubDate, tags } = post.data;
-    const posturl = String("/posts/" + title);
+    // const { title, description, pubDate, tags } = post.data;
+    // const posturl = String("/posts/" + title);
     return <BlogPost {...post.data} />;
   })
 }

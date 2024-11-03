@@ -7,54 +7,59 @@ const pageTitle = "关于KOLDERWH";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <div class="about shadows">
-    <h1>About</h1>
+  <div class="contentMain">
+    <div class="containerMain contentRadius shadows about">
+      <!-- <div class="about "> -->
+        <h1>About</h1>
+    
+        <h3>基本情况</h3>
+        <!-- <p>家底蹲大学，目前在找工作</p> -->
+        <p>小前端一枚</p>
+        <p>掌握的语言有Javascript, Java</p>
+        <p>数据库包括Mysql,sqlite</p>
+    
+        <h3>技术栈</h3>
+        <p>HTML, CSS, JS(ES6)</p>
+        <p>渲染框架: React, Vue</p>
+        <p>打包工具: Vite, Webpack</p>
+        <p>开发工具: Vscode, IDEA</p>
+        <p>其他: Git, Bash</p>
+    
+        <h3>语言</h3>
+        <p>Javascript</p>
+        <p>Java</p>
+        <p><del>Python</del></p>
+        <p><del>C</del></p>
+        <p><del>C#</del></p>
+    
+        <h3>设备</h3>
+        <p>Samsung S10+</p>
+        <p>Pixel 7</p>
+        <p>iPhone 7</p>
+        <p>orangepi-3lts</p>
+    
+        <h3>外链</h3>
+        <ul>
+          <LinkCard url="https://space.bilibili.com/549336381">
+            <!-- <Icon name="ant-design:bilibili" /> -->
+          </LinkCard>
+          <LinkCard url="mailto:kolderwh@gmail.com">
+            <Icon name="mail" />
+          </LinkCard>
+          <LinkCard bgcolor="#222" url="https://github.com/KOLDERWH">
+            <Icon name="github" />
+          </LinkCard>
+          <LinkCard url="https://steamcommunity.com/profiles/76561199000624616/">
+            <Icon name="steam" />
+          </LinkCard>
+          <LinkCard url="https://steamcommunity.com/profiles/76561199000624616/">
+            <Icon name="telegram" />
+          </LinkCard>
+          <LinkCard url="" bgcolor="#39d"><Icon name="twitter" /></LinkCard>
+        </ul>
+      <!-- </div> -->
 
-    <h3>基本情况</h3>
-    <p>家底蹲大学，目前在找工作</p>
-    <p>小前端一枚</p>
-    <p>掌握的语言有Javascript, Java</p>
-    <p>数据库目前只会Mysql,sqlite</p>
-
-    <h3>技术栈</h3>
-    <p>HTML, CSS, JS(ES6)</p>
-    <p>渲染框架: React, Vue</p>
-    <p>打包工具: Vite, Webpack</p>
-    <p>开发工具: Vscode, IDEA</p>
-    <p>其他: Git, Bash</p>
-
-    <h3>语言</h3>
-    <p>Javascript</p>
-    <p>Java</p>
-    <p><del>Python</del></p>
-    <p><del>C</del></p>
-    <p><del>C#</del></p>
-
-    <h3>设备</h3>
-    <p>Samsung S10+</p>
-    <p>Pixel 7</p>
-    <p>iPhone 7</p>
-    <p>orangepi-3lts</p>
-
-    <h3>外链</h3>
-    <ul>
-      <LinkCard url="https://space.bilibili.com/549336381">
-        <!-- <Icon name="ant-design:bilibili" /> -->
-      </LinkCard>
-      <LinkCard url="mailto:kolderwh@gmail.com">
-        <Icon name="mail" />
-      </LinkCard>
-      <LinkCard bgcolor="#222" url="https://github.com/KOLDERWH">
-        <Icon name="github" />
-      </LinkCard>
-      <LinkCard url="https://steamcommunity.com/profiles/76561199000624616/">
-        <Icon name="steam" />
-      </LinkCard>
-      <LinkCard url="https://steamcommunity.com/profiles/76561199000624616/">
-        <Icon name="telegram" />
-      </LinkCard>
-      <LinkCard url="" bgcolor="#39d"><Icon name="twitter" /></LinkCard>
-    </ul>
+    </div>
   </div>
 
   <style>
@@ -66,17 +71,16 @@ const pageTitle = "关于KOLDERWH";
     }
     .about {
       background: #fff;
-      padding: 4px 20px;
-      margin: 0 20px;
-      border-radius: 16px;
     }
     p {
       margin: 0;
     }
     @media screen and (min-width: 636px) {
       .about {
-        padding: 4px 60px;
-        border-radius: 16px;
+        padding: 4px 20px;
+      }
+      h1{
+        margin-top: 0;
       }
     }
   </style>

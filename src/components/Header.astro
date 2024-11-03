@@ -1,15 +1,16 @@
 ---
-import { Image } from "astro:assets";
+// import { Image } from "astro:assets";
 import Navigation from "./Navigation.astro";
 import ThemeIcon from "./ThemeIcon.astro";
 
-import avatar from "@/assets/avatar/avatar.jpg";
+// import avatar from "@/assets/avatar/avatar.jpg";
 ---
 
 <header class="header">
   <div class="profile">
-    <Image src={avatar} alt="descriptive text" width="184" height="184" />
-    <a href="/blog" class="info hovereffect">Kolderwh's 部落阁</a>
+    <img src="/avatar/avatar.jpg" alt="avatar" width="48" height="48">
+    <!-- <Image src={avatar} alt="descriptive text" width="184" height="184" /> -->
+    <a href="/" class="info hovereffect">Kolderwh's 部落阁</a>
   </div>
   <Navigation />
   <!-- <ThemeIcon /> -->
@@ -18,9 +19,10 @@ import avatar from "@/assets/avatar/avatar.jpg";
 <style>
   .header {
     background: inherit;
+    display: block;
     background: rgba(255, 255, 255, 0.96);
     width: 100%;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     left: 0;
     right: 0;

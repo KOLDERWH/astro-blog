@@ -4,7 +4,7 @@ import BaseLayout from "@/layout/BaseLayout.astro";
 import PostCardRen from "@/components/PostCardRen.astro";
 
 export async function getStaticPaths() {
-  const tagsPosts = (await getCollection("blog")).filter(
+  const tagsPosts = (await getCollection("posts")).filter(
     (post) => post.data.tags
   );
 
@@ -16,7 +16,10 @@ export async function getStaticPaths() {
     const filterPosts = tagsPosts.filter((post) =>
       post.data.tags.includes(tag)
     );
-    return { params: { tag }, props: { posts: filterPosts } };
+  
+  const sortedPosts = filterPosts.sort((a, b) => Number(b.data.pubDate) - Number(a.data.pubDate));
+  
+    return { params: { tag }, props: { posts: sortedPosts } };
   });
 }
 
@@ -26,19 +29,31 @@ const filteredPosts = posts.filter((post) => post.data.tags?.includes(tag));
 ---
 
 <BaseLayout pageTitle={tag}>
-  <div class="title">
-    <div class="info">
-      标签含有 <span class="tag"> {tag}</span> 的文章
-    </div>
-    <div class="desc">共{posts.length}篇</div>
-  </div>
+  <div class="content flex-grow ">
+    <div class="container">
+      <div class="title contentRadius">
+        <div class="info">
+          标签含有 <span class="tag"> {tag}</span> 的文章
+        </div>
+        <div class="desc">共{posts.length}篇</div>
+      </div>
+    
+      <ul>
+        <PostCardRen posts={filteredPosts} />
+      </ul>
 
-  <ul>
-    <PostCardRen posts={filteredPosts} />
-  </ul>
+    </div>
+
+  </div>
 </BaseLayout>
 
 <style>
+  .content{
+    padding: 0 8px;
+    .container{
+      padding: 0 4px;
+    }
+  }
   .title {
     display: flex;
     flex-direction: column;
@@ -47,7 +62,6 @@ const filteredPosts = posts.filter((post) => post.data.tags?.includes(tag));
     height: 60px;
     text-align: center;
     font-weight: bold;
-    border-radius: 14px;
     -webkit-box-shadow: 3px 3px 15px #333;
     box-shadow: 3px 3px 15px #333;
     .info,

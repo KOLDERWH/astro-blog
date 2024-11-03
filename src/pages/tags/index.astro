@@ -3,7 +3,7 @@ import { Icon } from "astro-icon";
 import BaseLayout from "@/layout/BaseLayout.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 
-const tagsPosts = (await getCollection("blog")).filter(
+const tagsPosts = (await getCollection("posts")).filter(
   (post) => post.data.tags
 );
 
@@ -11,30 +11,43 @@ const uniqueTag = [...new Set(tagsPosts.map((post) => post.data.tags).flat())];
 ---
 
 <BaseLayout>
-  <div class="tagslist">
-    {
-      uniqueTag &&
-        uniqueTag.map((tag) => {
-          return (
-            <div class="card">
-              <a href={"tags/" + tag}>
-                <div class="icon">
-                  <Icon name="tag" />
-                </div>
-                <div class="tag">{tag}</div>
-              </a>
-            </div>
-          );
-        })
-    }
+  <div class="content">
+    <div class="container">
+      <div class="tagslist contentRadius">
+      {
+        uniqueTag &&
+          uniqueTag.map((tag) => {
+            return (
+              <div class="card">
+                <a href={"tags/" + tag}>
+                  <div class="icon">
+                    <Icon name="tag" />
+                  </div>
+                  <div class="tag">{tag}</div>
+                </a>
+              </div>
+            );
+          })
+      }
+
+      </div>
+    </div>
   </div>
 </BaseLayout>
 
 <style>
+  .content{
+    flex-grow: 1;
+    padding: 0 8px;
+  }
   .tagslist {
+    flex-grow: 1;
     display: flex;
     background: #fff;
-    border-radius: 4px;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    min-width: 0px;
+    max-width: 100%;
     .card {
       padding: 8px;
       width: 25%;
